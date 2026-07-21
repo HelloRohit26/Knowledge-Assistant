@@ -1,0 +1,35 @@
+categories:
+
+  Policy:
+    authority_score: 100
+    is_official: true
+
+  SOP:
+    authority_score: 95
+    is_official: true
+
+  Handbook:
+    authority_score: 90
+    is_official: true
+
+  Guideline:
+    authority_score: 80
+    is_official: true
+
+  FAQ:
+    authority_score: 60
+    is_official: false
+
+  Memo:
+    authority_score: 40
+    is_official: false
+
+  Meeting Notes:
+    authority_score: 20
+    is_official: false
+
+default:
+
+  authority_score: 50
+
+  is_official: false

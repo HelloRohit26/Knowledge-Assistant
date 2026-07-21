@@ -1,0 +1,29 @@
+{
+    "product": "Knowledge Assistant",
+    "competitors": {
+        "Competitor_A": {
+            "accuracy_pct": 85,
+            "speed_sec": 4.5,
+            "price_usd": 49,
+            "ai_search": true
+        },
+        "Competitor_B": {
+            "accuracy_pct": 78,
+            "speed_sec": 3.0,
+            "price_usd": 29,
+            "ai_search": false
+        },
+        "Competitor_C": {
+            "accuracy_pct": 92,
+            "speed_sec": 6.2,
+            "price_usd": 99,
+            "ai_search": true
+        },
+        "Our_Product": {
+            "accuracy_pct": 95,
+            "speed_sec": 2.5,
+            "price_usd": 39,
+            "ai_search": true
+        }
+    }
+}

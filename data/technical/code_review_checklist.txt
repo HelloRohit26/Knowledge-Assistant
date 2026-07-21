@@ -1,0 +1,10 @@
+Verify that code adheres to project style guidelines.
+Ensure proper error handling is implemented for all functions.
+Check for potential security vulnerabilities like SQL injection.
+Verify that new features include comprehensive unit tests.
+Review database queries to prevent N+1 select issues.
+Ensure sensitive credentials are not hardcoded in source.
+Check that logging is informative but does not leak PI.
+Verify code compatibility with supported runtime versions.
+Keep functions focused on a single responsibility.
+Address all compiler and linter warnings before merging.

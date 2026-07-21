@@ -1,0 +1,10 @@
+Employees are entitled to 45 paid leaves annually.
+Maternity leave is 180 days.
+Paternity leave is 15 days.
+Sick leave balance is capped at 10 days per year.
+Unused paid leave can be carried forward up to a maximum of 5 days.
+All leave requests must be submitted at least 2 weeks in advance.
+Emergency leaves require manager approval within 24 hours of absence.
+Casual leave cannot be clubbed with privilege leave without prior permission.
+Bereavement leave of up to 5 days is provided for immediate family.
+Unapproved absences will lead to loss of pay and potential disciplinary action.

@@ -1,0 +1,37 @@
+[
+    {
+        "id": "EMP001",
+        "name": "Aarav Sharma",
+        "department": "HR",
+        "role": "HR Generalist",
+        "join_date": "2024-01-15"
+    },
+    {
+        "id": "EMP002",
+        "name": "Priya Patel",
+        "department": "Sales",
+        "role": "Account Executive",
+        "join_date": "2023-11-01"
+    },
+    {
+        "id": "EMP003",
+        "name": "Vikram Singh",
+        "department": "Technical",
+        "role": "Backend Engineer",
+        "join_date": "2025-03-10"
+    },
+    {
+        "id": "EMP004",
+        "name": "Neha Gupta",
+        "department": "Research",
+        "role": "Data Analyst",
+        "join_date": "2024-06-20"
+    },
+    {
+        "id": "EMP005",
+        "name": "Aditya Verma",
+        "department": "Policy",
+        "role": "Compliance Officer",
+        "join_date": "2022-08-05"
+    }
+]

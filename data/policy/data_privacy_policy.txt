@@ -1,0 +1,10 @@
+We are committed to protecting the privacy of our users.
+Personal data is collected only for necessary account operations.
+All data is encrypted in transit and at rest using AES-256.
+We comply fully with GDPR and CCPA regulations.
+Users have the right to request deletion of their data.
+Data is never sold or shared with third-party advertisers.
+Cookies are used solely to improve user experience.
+Security audits are conducted bi-annually by external firms.
+Data breaches will be reported to authorities within 72 hours.
+Privacy policy updates will be communicated via email.

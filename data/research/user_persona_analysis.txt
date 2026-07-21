@@ -1,0 +1,9 @@
+Persona 1: Tech-savvy managers seeking automation solutions.
+They value clear user interfaces and powerful dashboards.
+Their main pain point is manual report generation.
+Persona 2: Executive decision-makers focused on ROI.
+They look for seamless integrations and security compliance.
+They prefer detailed case studies and proof of concept trials.
+Persona 3: End-users who need daily task efficiency.
+They prefer intuitive navigation and quick load times.
+They easily abandon products with steep learning curves.

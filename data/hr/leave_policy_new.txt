@@ -1,0 +1,9 @@
+Leave Policy
+
+Employees are allowed 30 paid leaves every year.
+
+Version: v1
+
+Status: Active
+
+Department: HR

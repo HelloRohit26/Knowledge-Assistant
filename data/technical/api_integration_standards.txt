@@ -1,0 +1,10 @@
+All API requests must communicate over HTTPS protocol.
+Authentication is handled via JWT tokens in authorization header.
+Standard RESTful design should be followed for resource paths.
+JSON is the default format for requests and responses.
+Error responses must return standard HTTP status codes.
+Error body must include a code and a user-friendly message.
+Rate limiting is set to 100 requests per minute per IP.
+API documentation is automatically generated using Swagger.
+Version endpoints using URI prefix e.g., api/v1.
+Deprecated endpoints must be marked with deprecation headers.

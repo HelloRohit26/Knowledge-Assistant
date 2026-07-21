@@ -1,0 +1,10 @@
+The database runs on PostgreSQL version 15.
+Users table stores basic authentication and profile data.
+Password hashes are secured using bcrypt algorithm.
+Sessions table tracks active user logins and device tokens.
+Projects table has a foreign key referencing the Users table.
+Indexes are created on search fields and foreign key columns.
+Database backups are taken daily and stored in S3.
+Migrations are managed sequentially using Alembic.
+Read replicas are utilized to handle search query traffic.
+Schema changes must be reviewed by the lead DBA.

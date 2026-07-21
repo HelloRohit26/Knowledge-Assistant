@@ -1,0 +1,10 @@
+Passwords must be at least 12 characters with mixed complexity.
+Multi-factor authentication is mandatory for all access.
+Laptops must be locked when leaving your work desk.
+Unapproved software must not be installed on company machines.
+Phishing tests are conducted monthly to raise awareness.
+Public Wi-Fi usage requires the corporate VPN connection.
+Sensitive files must be shared through approved channels only.
+Lost or stolen devices must be reported immediately to IT.
+Security patches are installed automatically during off-hours.
+Failure to comply with security guidelines may lead to access revocation.

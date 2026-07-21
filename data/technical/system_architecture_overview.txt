@@ -1,0 +1,10 @@
+The system is designed using a microservices architecture.
+API Gateway routes incoming client traffic to services.
+Services communicate asynchronously via RabbitMQ broker.
+Frontend application is built with React and deployed to CDN.
+Authentication service validates login credentials and issues JWTs.
+Data service manages relational database records and updates.
+File storage is offloaded to AWS S3 bucket resources.
+Redis cache layer improves latency for common requests.
+Services are hosted inside isolated Virtual Private Clouds.
+Load balancers distribute traffic across multiple regions.

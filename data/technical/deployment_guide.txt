@@ -1,0 +1,10 @@
+Ensure all tests pass before initiating deployment.
+Build the production Docker image using the official Dockerfile.
+Push the built image to the secure container registry.
+Update the Kubernetes deployment manifest with the new tag.
+Apply the changes to the staging environment first.
+Verify all health check endpoints return successful status.
+Run automated database migration scripts during off-peak hours.
+Perform rolling updates in production to avoid downtime.
+Monitor server logs and latency metrics for 30 minutes.
+Rollback immediately if error rate exceeds the threshold.

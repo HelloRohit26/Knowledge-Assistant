@@ -1,0 +1,10 @@
+All incoming leads must be qualified using the BANT framework.
+Budget: Confirm the prospect has funding for software solutions.
+Authority: Identify the decision-maker and key influencers.
+Need: Determine if the product solves a critical business pain point.
+Timeline: Establish a purchase decision schedule within 6 months.
+Ideal customer profile includes tech companies with 50-500 employees.
+Leads must exhibit active engagement with marketing content.
+Inbound queries must be answered by an SDR within 2 hours.
+Disqualified leads should be nurtured via email campaigns.
+Qualified leads are handed over to Account Executives.
