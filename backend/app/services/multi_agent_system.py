@@ -139,7 +139,7 @@ Format output in clean Markdown with clear sections, executive callouts, and rec
     if client:
         try:
             res = client.models.generate_content(
-                model="gemini-3.5-flash",
+                model="gemini-2.0-flash",
                 contents=synthesis_prompt,
                 config=types.GenerateContentConfig(temperature=0.1)
             )
