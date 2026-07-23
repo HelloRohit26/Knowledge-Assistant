@@ -16,12 +16,10 @@
     "lucide-react": "^1.24.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "react-tsparticles": "^2.12.2",
     "react-xarrows": "^2.0.2",
     "reactflow": "^11.11.4",
     "recharts": "^3.10.0",
-    "tailwindcss": "^4.3.2",
-    "tsparticles": "^4.3.2"
+    "tailwindcss": "^4.3.2"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
