@@ -15,7 +15,7 @@ services:
     volumes:
       - backend_chroma_data:/app/chroma_db
       - backend_db_data:/app/tracking_data
-      - ./data:/app/data:ro
+      - ./data:/app/data
       - ./backend/logs:/app/logs
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/api/registry/health"]
