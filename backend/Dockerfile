@@ -33,7 +33,6 @@ ENV PYTHONUNBUFFERED=1
 
 # Copy application source code
 COPY app /app/app
-COPY data /app/data
 
 # Create data directories and logs folder
 RUN mkdir -p /app/chroma_db /app/logs /app/data
