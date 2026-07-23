@@ -1,4 +1,10 @@
-from llama_index.embeddings.google_genai import GoogleGenAIEmbedding
+try:
+    from llama_index.embeddings.google_genai import GoogleGenAIEmbedding
+except ModuleNotFoundError:
+    try:
+        from llama_index.embeddings.google import GoogleEmbedding as GoogleGenAIEmbedding
+    except ModuleNotFoundError:
+        from llama_index.embeddings.gemini import GeminiEmbedding as GoogleGenAIEmbedding
 
 from app.core.config import settings
 

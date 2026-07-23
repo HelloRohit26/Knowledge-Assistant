@@ -16,6 +16,7 @@ google-genai>=0.1.1
 google-generativeai>=0.4.1
 llama-index>=0.10.0
 llama-index-embeddings-google>=0.1.4
+llama-index-embeddings-google-genai
 rank-bm25>=0.2.2
 
 # File Monitoring & Utilities
