@@ -63,22 +63,22 @@ export default function SearchPage() {
     <div className="space-y-6">
       {/* Search Bar Section */}
       <div className="glass-panel p-6 rounded-3xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl -z-10" />
+        <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl -z-10" />
 
         <form onSubmit={handleSearch} className="space-y-4">
           <div className="relative flex items-center">
-            <Search className="absolute left-4 h-5 w-5 text-blue-400" />
+            <Search className="absolute left-4 h-5 w-5 text-cyan-400" />
             <input
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search enterprise policies, technical docs, guidelines..."
-              className="w-full pl-12 pr-32 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 outline-none focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 transition text-sm"
+              className="w-full pl-12 pr-36 py-4 rounded-2xl bg-white/[0.03] border border-white/10 text-white placeholder:text-slate-500 outline-none focus:border-cyan-500/50 focus:ring-4 focus:ring-cyan-500/10 transition text-sm font-medium"
             />
             <button
               type="submit"
               disabled={loading}
-              className="absolute right-2.5 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium text-xs transition shadow-lg shadow-blue-600/30 flex items-center gap-2 cursor-pointer"
+              className="absolute right-2.5 px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold text-xs transition shadow-lg shadow-cyan-500/25 flex items-center gap-2 cursor-pointer"
             >
               {loading ? (
                 <Sparkles className="h-4 w-4 animate-spin text-white" />
@@ -94,7 +94,7 @@ export default function SearchPage() {
           {/* Filter Bar Chips */}
           <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-white/5">
             <div className="flex items-center gap-1.5 text-xs text-slate-400 mr-2">
-              <SlidersHorizontal className="h-3.5 w-3.5 text-blue-400" />
+              <SlidersHorizontal className="h-3.5 w-3.5 text-cyan-400" />
               <span>Filters:</span>
             </div>
 
@@ -138,7 +138,7 @@ export default function SearchPage() {
               <button
                 type="button"
                 onClick={clearFilters}
-                className="text-xs text-rose-400 hover:text-rose-300 flex items-center gap-1 ml-auto"
+                className="text-xs text-rose-400 hover:text-rose-300 flex items-center gap-1 ml-auto cursor-pointer"
               >
                 <X className="h-3 w-3" /> Clear Filters
               </button>
@@ -152,17 +152,17 @@ export default function SearchPage() {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="p-4 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex flex-wrap items-center justify-between gap-3 text-xs"
+          className="p-4 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex flex-wrap items-center justify-between gap-3 text-xs"
         >
-          <div className="flex items-center gap-2 text-blue-300">
-            <Sparkles className="h-4 w-4 text-blue-400" />
+          <div className="flex items-center gap-2 text-cyan-300">
+            <Sparkles className="h-4 w-4 text-cyan-400" />
             <span className="font-semibold">Parsed Intent:</span>
             <span className="text-white font-mono">"{searchResults.query_analysis.search_text}"</span>
           </div>
 
           <div className="flex items-center gap-2">
             {searchResults.query_analysis.department && (
-              <span className="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 text-[11px]">
+              <span className="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 text-[11px]">
                 Dept: {searchResults.query_analysis.department}
               </span>
             )}
@@ -195,13 +195,13 @@ export default function SearchPage() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
-              className="glass-panel p-5 rounded-2xl space-y-3 hover:border-blue-500/30 transition"
+              className="glass-panel p-5 rounded-2xl space-y-3 hover:border-cyan-500/30 transition group"
             >
               {/* Header Badges */}
               <div className="flex items-center justify-between gap-2 flex-wrap">
                 <div className="flex items-center gap-2">
-                  <FileText className="h-4 w-4 text-blue-400" />
-                  <span className="text-sm font-bold text-white">
+                  <FileText className="h-4 w-4 text-cyan-400" />
+                  <span className="text-sm font-bold text-white group-hover:text-cyan-300 transition">
                     {res.metadata?.file_name || 'Document Result'}
                   </span>
 
@@ -216,14 +216,14 @@ export default function SearchPage() {
                   <span className="px-2 py-0.5 rounded bg-white/5 text-slate-300 font-mono">
                     Score: {res.composite_score?.toFixed(1) || '85.0'}
                   </span>
-                  <span className="px-2 py-0.5 rounded bg-blue-500/10 text-blue-300">
+                  <span className="px-2.5 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
                     {res.metadata?.department || 'General'}
                   </span>
                 </div>
               </div>
 
               {/* Text Snippet */}
-              <p className="text-xs text-slate-300 leading-relaxed font-mono bg-black/30 p-3 rounded-xl border border-white/5">
+              <p className="text-xs text-slate-300 leading-relaxed font-mono bg-black/40 p-3 rounded-xl border border-white/5">
                 {res.document}
               </p>
 
@@ -237,7 +237,7 @@ export default function SearchPage() {
         </div>
       ) : (
         <div className="glass-panel p-12 rounded-3xl text-center space-y-3">
-          <div className="h-12 w-12 rounded-2xl bg-blue-500/10 text-blue-400 flex items-center justify-center mx-auto border border-blue-500/20">
+          <div className="h-12 w-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mx-auto border border-cyan-500/20">
             <Search className="h-6 w-6" />
           </div>
           <h3 className="text-base font-semibold text-white">Enterprise Hybrid Search</h3>

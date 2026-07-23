@@ -2,6 +2,7 @@
 Knowledge Intelligence Platform — FastAPI Main Application Entry Point
 """
 
+import os
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -21,6 +22,8 @@ from app.api.chat import router as chat_router
 from app.api.registry import router as registry_router
 from app.api.admin import router as admin_router
 from app.api.analytics import router as analytics_router
+from app.api.workflows import router as workflows_router, copilot_router
+from app.api.saas_platform import router as saas_platform_router
 
 # Import Legacy/Test Routers
 from app.api.scanner import router as scanner_router
@@ -66,14 +69,12 @@ app = FastAPI(
 app.add_middleware(RequestLoggingMiddleware)
 
 # CORS Middleware
+allowed_origins_env = os.getenv("ALLOWED_ORIGINS", "*")
+allowed_origins = [origin.strip() for origin in allowed_origins_env.split(",")] if allowed_origins_env != "*" else ["*"]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "http://localhost:5174",
-        "http://127.0.0.1:5173",
-        "http://127.0.0.1:5174",
-    ],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -97,6 +98,9 @@ app.include_router(chat_router)
 app.include_router(registry_router)
 app.include_router(admin_router)
 app.include_router(analytics_router)
+app.include_router(workflows_router)
+app.include_router(copilot_router)
+app.include_router(saas_platform_router)
 
 # Include Legacy/Test Routers (for backwards compatibility)
 app.include_router(scanner_router)

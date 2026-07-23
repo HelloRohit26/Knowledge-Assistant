@@ -14,20 +14,22 @@ import {
   ArrowUpRight
 } from 'lucide-react';
 
+import CopilotWidget from '../components/copilot/CopilotWidget';
+
 export default function DashboardPage({ stats, analytics, onNavigate, onReindex }) {
   const totalDocs = stats?.total_documents || analytics?.total_documents || 39;
   const totalVectors = stats?.total_vectors || totalDocs * 12;
 
   const kpis = [
-    { title: 'Total Indexed Documents', value: totalDocs, label: 'Across 5 Departments', icon: FileText, color: 'from-blue-500 to-indigo-600' },
-    { title: 'Total Vector Embeddings', value: totalVectors, label: '768-dim Gemini Embeddings', icon: Database, color: 'from-cyan-500 to-blue-600' },
+    { title: 'Total Indexed Documents', value: totalDocs, label: 'Across 5 Departments', icon: FileText, color: 'from-cyan-500 to-blue-600' },
+    { title: 'Total Vector Embeddings', value: totalVectors, label: '768-dim Gemini Embeddings', icon: Database, color: 'from-violet-500 to-fuchsia-600' },
     { title: 'Search Retrieval Latency', value: '42 ms', label: 'RRF + Gemini Rerank', icon: Activity, color: 'from-emerald-500 to-teal-600' },
-    { title: 'Conflict Resolution Rate', value: '100%', label: 'Authoritative Versioning', icon: ShieldCheck, color: 'from-purple-500 to-pink-600' },
+    { title: 'Conflict Resolution Rate', value: '100%', label: 'Authoritative Versioning', icon: ShieldCheck, color: 'from-amber-500 to-orange-600' },
   ];
 
   const deptData = [
-    { name: 'HR', count: 11, color: '#3b82f6' },
-    { name: 'Policy', count: 7, color: '#06b6d4' },
+    { name: 'HR', count: 11, color: '#06b6d4' },
+    { name: 'Policy', count: 7, color: '#3b82f6' },
     { name: 'Technical', count: 6, color: '#8b5cf6' },
     { name: 'Research', count: 8, color: '#10b981' },
     { name: 'Sales', count: 7, color: '#f59e0b' },
@@ -48,42 +50,45 @@ export default function DashboardPage({ stats, analytics, onNavigate, onReindex 
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        className="rounded-3xl p-6 relative overflow-hidden bg-gradient-to-r from-blue-900/40 via-indigo-900/30 to-purple-900/40 border border-blue-500/20 shadow-2xl"
+        className="rounded-3xl p-6 relative overflow-hidden bg-gradient-to-r from-cyan-950/60 via-indigo-950/50 to-purple-950/60 border border-cyan-500/30 shadow-2xl"
       >
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -z-10" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl -z-10" />
 
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-xs text-blue-300 font-medium mb-3">
-              <Sparkles className="h-3.5 w-3.5 text-blue-400" />
-              <span>Enterprise RAG Node Ready</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-xs text-cyan-300 font-medium mb-3">
+              <Sparkles className="h-3.5 w-3.5 text-cyan-400 animate-pulse" />
+              <span>Enterprise RAG Node • Cyber Obsidian Edition</span>
             </div>
-            <h2 className="text-2xl font-bold text-white tracking-tight">
+            <h2 className="text-2xl font-extrabold text-white tracking-tight bg-gradient-to-r from-white via-slate-100 to-cyan-300 bg-clip-text text-transparent">
               Knowledge Assistant Intelligence Portal
             </h2>
             <p className="text-sm text-slate-300 mt-1 max-w-2xl">
-              Automated document scanning, Gemini structured metadata extraction, Hybrid Vector + BM25 search, and conflict resolution across your organization.
+              Automated business workflows, document comparison, policy summaries, and AI reasoning across your organization.
             </p>
           </div>
 
           <div className="flex gap-3">
             <button
-              onClick={() => onNavigate('search')}
-              className="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold shadow-lg shadow-blue-600/30 flex items-center gap-2 transition cursor-pointer"
+              onClick={() => onNavigate('workflows')}
+              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-bold text-xs shadow-lg shadow-cyan-500/25 flex items-center gap-2 transition cursor-pointer"
             >
-              <Search className="h-4 w-4" />
-              Launch Search
+              <Sparkles className="h-4 w-4" />
+              AI Workflows Engine
             </button>
             <button
-              onClick={() => onNavigate('chat')}
-              className="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs font-semibold border border-white/10 flex items-center gap-2 transition cursor-pointer"
+              onClick={() => onNavigate('search')}
+              className="px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs font-semibold border border-white/10 flex items-center gap-2 transition cursor-pointer"
             >
-              <Layers className="h-4 w-4 text-cyan-400" />
-              AI Chat Hub
+              <Search className="h-4 w-4" />
+              Search
             </button>
           </div>
         </div>
       </motion.div>
+
+      {/* Proactive AI Copilot Banner */}
+      <CopilotWidget onSelectWorkflow={(id) => onNavigate('workflows')} />
 
       {/* KPI Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -95,16 +100,16 @@ export default function DashboardPage({ stats, analytics, onNavigate, onReindex 
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
-              className="glass-panel p-5 rounded-2xl relative overflow-hidden"
+              className="glass-panel p-5 rounded-2xl relative overflow-hidden group hover:border-cyan-500/40 transition"
             >
               <div className="flex items-center justify-between">
                 <span className="text-xs font-medium text-slate-400">{kpi.title}</span>
-                <div className={`p-2 rounded-xl bg-gradient-to-br ${kpi.color} text-white shadow-md`}>
+                <div className={`p-2.5 rounded-xl bg-gradient-to-br ${kpi.color} text-white shadow-md`}>
                   <Icon className="h-4 w-4" />
                 </div>
               </div>
               <div className="mt-3">
-                <div className="text-2xl font-bold text-white tracking-tight">{kpi.value}</div>
+                <div className="text-2xl font-extrabold text-white tracking-tight">{kpi.value}</div>
                 <div className="text-[11px] text-slate-400 mt-1 flex items-center gap-1">
                   <TrendingUp className="h-3 w-3 text-emerald-400" />
                   <span>{kpi.label}</span>
@@ -171,8 +176,8 @@ export default function DashboardPage({ stats, analytics, onNavigate, onReindex 
           </div>
 
           <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 space-y-2 text-center">
-            <div className="text-3xl font-bold text-emerald-400">Synced</div>
-            <p className="text-xs text-slate-300">All 39 documents vectorized in ChromaDB</p>
+            <div className="text-3xl font-extrabold text-emerald-400">Synced</div>
+            <p className="text-xs text-slate-300">All {totalDocs} documents vectorized in ChromaDB</p>
           </div>
 
           <div className="space-y-2 text-xs">
@@ -186,7 +191,7 @@ export default function DashboardPage({ stats, analytics, onNavigate, onReindex 
             </div>
             <div className="flex justify-between text-slate-300">
               <span>Watcher Status:</span>
-              <span className="font-mono text-blue-400">Active (2s)</span>
+              <span className="font-mono text-cyan-400">Active (2s)</span>
             </div>
           </div>
         </motion.div>
@@ -201,12 +206,12 @@ export default function DashboardPage({ stats, analytics, onNavigate, onReindex 
       >
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-sm font-semibold text-white flex items-center gap-2">
-            <Clock className="h-4 w-4 text-blue-400" />
+            <Clock className="h-4 w-4 text-cyan-400" />
             Live Intelligence Activity Timeline
           </h3>
           <button
             onClick={() => onNavigate('explorer')}
-            className="text-xs text-blue-400 hover:text-blue-300 flex items-center gap-1"
+            className="text-xs text-cyan-400 hover:text-cyan-300 flex items-center gap-1 cursor-pointer"
           >
             View Document Explorer <ArrowUpRight className="h-3 w-3" />
           </button>
@@ -214,12 +219,12 @@ export default function DashboardPage({ stats, analytics, onNavigate, onReindex 
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {recentActivities.map((act) => (
-            <div key={act.id} className="p-3 rounded-xl bg-white/5 border border-white/5 flex items-center justify-between">
+            <div key={act.id} className="p-3.5 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-between hover:border-cyan-500/20 transition">
               <div>
                 <p className="text-xs font-medium text-slate-200">{act.text}</p>
                 <p className="text-[10px] text-slate-400 mt-0.5">{act.time}</p>
               </div>
-              <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20">
+              <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
                 {act.status}
               </span>
             </div>

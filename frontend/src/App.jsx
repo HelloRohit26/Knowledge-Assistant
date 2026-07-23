@@ -6,7 +6,13 @@ import Sidebar from './components/layout/Sidebar';
 import Header from './components/layout/Header';
 import CommandPalette from './components/layout/CommandPalette';
 
+import AmbientBackground from './components/layout/AmbientBackground';
+
 import DashboardPage from './pages/DashboardPage';
+import WorkflowsPage from './pages/WorkflowsPage';
+import WorkspacePage from './pages/WorkspacePage';
+import KnowledgeGraphPage from './pages/KnowledgeGraphPage';
+import SaasSettingsPage from './pages/SaasSettingsPage';
 import SearchPage from './pages/SearchPage';
 import ChatPage from './pages/ChatPage';
 import ExplorerPage from './pages/ExplorerPage';
@@ -64,7 +70,7 @@ function MainApp() {
 
   if (authLoading) {
     return (
-      <div className="min-h-screen bg-[#050816] flex items-center justify-center text-slate-400 text-sm font-mono">
+      <div className="min-h-screen bg-[#030712] flex items-center justify-center text-cyan-400 text-sm font-mono">
         Initializing Knowledge Intelligence Node...
       </div>
     );
@@ -81,6 +87,14 @@ function MainApp() {
             onReindex={handleReindex}
           />
         );
+      case 'workflows':
+        return <WorkflowsPage />;
+      case 'workspace':
+        return <WorkspacePage />;
+      case 'knowledge-graph':
+        return <KnowledgeGraphPage />;
+      case 'saas-settings':
+        return <SaasSettingsPage />;
       case 'search':
         return <SearchPage />;
       case 'chat':
@@ -97,12 +111,9 @@ function MainApp() {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#050816] text-slate-100 font-sans relative overflow-hidden">
-      {/* Background Ambient Glows */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-10 left-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[140px]" />
-        <div className="absolute bottom-10 right-1/4 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[140px]" />
-      </div>
+    <div className="flex min-h-screen bg-[#030712] text-slate-100 font-sans relative overflow-hidden">
+      {/* Dynamic Ambient Background Mesh */}
+      <AmbientBackground />
 
       {/* Floating Sidebar */}
       <Sidebar
@@ -126,10 +137,10 @@ function MainApp() {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.15 }}
+              initial={{ opacity: 0, y: 15, scale: 0.99 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -15, scale: 0.99 }}
+              transition={{ type: 'spring', stiffness: 350, damping: 28 }}
             >
               {renderPage()}
             </motion.div>
@@ -152,9 +163,9 @@ function MainApp() {
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
-            className="fixed bottom-6 right-6 z-50 px-4 py-3 rounded-2xl bg-slate-900 border border-blue-500/30 text-xs text-white shadow-2xl flex items-center gap-3 backdrop-blur-xl"
+            className="fixed bottom-6 right-6 z-50 px-4 py-3 rounded-2xl bg-slate-900 border border-cyan-500/30 text-xs text-white shadow-2xl flex items-center gap-3 backdrop-blur-xl"
           >
-            <span className="h-2 w-2 rounded-full bg-blue-400 animate-ping" />
+            <span className="h-2 w-2 rounded-full bg-cyan-400 animate-ping" />
             <span>{toastMessage}</span>
           </motion.div>
         )}

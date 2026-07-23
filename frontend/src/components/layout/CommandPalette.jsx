@@ -9,7 +9,11 @@ import {
   ShieldAlert,
   RefreshCw,
   X,
-  ArrowRight
+  ArrowRight,
+  Zap,
+  Network,
+  LayoutGrid,
+  Building
 } from 'lucide-react';
 
 export default function CommandPalette({ isOpen, onClose, setActiveTab, onReindex }) {
@@ -38,6 +42,10 @@ export default function CommandPalette({ isOpen, onClose, setActiveTab, onReinde
 
   const actions = [
     { id: 'nav-dash', title: 'Go to Dashboard', category: 'Navigation', icon: LayoutDashboard, action: () => { setActiveTab('dashboard'); onClose(); } },
+    { id: 'nav-workflows', title: 'Go to AI Workflows', category: 'Navigation', icon: Zap, action: () => { setActiveTab('workflows'); onClose(); } },
+    { id: 'nav-workspace', title: 'Go to AI Workspace', category: 'Navigation', icon: LayoutGrid, action: () => { setActiveTab('workspace'); onClose(); } },
+    { id: 'nav-graph', title: 'Go to Knowledge Graph', category: 'Navigation', icon: Network, action: () => { setActiveTab('knowledge-graph'); onClose(); } },
+    { id: 'nav-saas', title: 'Go to SaaS & API Keys', category: 'Navigation', icon: Building, action: () => { setActiveTab('saas-settings'); onClose(); } },
     { id: 'nav-search', title: 'Go to AI Search', category: 'Navigation', icon: Search, action: () => { setActiveTab('search'); onClose(); } },
     { id: 'nav-chat', title: 'Go to Intelligence Chat', category: 'Navigation', icon: MessageSquare, action: () => { setActiveTab('chat'); onClose(); } },
     { id: 'nav-explorer', title: 'Go to Document Explorer', category: 'Navigation', icon: FolderKanban, action: () => { setActiveTab('explorer'); onClose(); } },

@@ -1,4 +1,4 @@
-# Knowledge Assistant - Backend Python Dependencies
+# Knowledge Assistant - Python Dependencies
 
 # Core Web Framework & Server
 fastapi>=0.110.0
